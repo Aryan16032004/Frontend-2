@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Poppins:wght@400;500;600&display=swap');
+
+*{
+  font-family: 'Poppins';
+}
+.h-font{
+  font-family: 'Merienda';
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.navbar-nav .nav-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px; /* Adjust thickness here */
+  text-decoration-color: #000;  /* Optional: Set underline color */
+  font-weight: 500;
+}
+.link{
+  text-decoration: underline;
+  text-decoration-thickness: 2px; /* Adjust thickness here */
+  text-decoration-color: #000;
+}
