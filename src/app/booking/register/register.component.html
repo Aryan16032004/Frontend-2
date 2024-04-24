@@ -1,39 +1,23 @@
 
 
-<app-navbar></app-navbar>
+<nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="#">TJ HOTEL</a>
+      <div class="d-flex" role="search">
+       <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2" (click)="login()">
+        Login
+      </button>
+      <button type="button" class="btn btn-outline-dark shadow-none me-lg-2 me-3" (click)="register()">
+        Register
+      </button>
+      </div>
+    </div>
+</nav>
+
 
 <div class="d-flex justify-content-center align-items-center  m-auto ">
   <div class="w-100  p-4 rounded shadow" style="margin-top: 10rem;max-width: 40vw;">
-
-    <form *ngIf="activeForm === 'login'" [formGroup]="loginForm" (ngSubmit)="login()">
-      <h1 class="text-3xl font-weight-bold text-center text-gray-300">
-        Login
-      </h1>
-      <div class="mt-4" class="form-group">
-        <label class="label">
-          <span class="text-base label-text">Email</span>
-        </label>
-        <input type="email" class="w-100 form-control mt-1" formControlName="email" placeholder="Email" />
-      </div>
-
-      <div class="mt-4" class="form-group">
-        <label class="label">
-          <span class="text-base label-text">Password</span>
-        </label>
-        <input type="password" class="w-100 form-control mt-1" formControlName="password" placeholder="Password" />
-      </div>
-
-      <div class="mt-4">
-        <button class="btn btn-block" type="submit">Login</button>
-      </div>
-      <p (click)="toggleForm()">Don't have an account?
-        <span class="highlighted">Register</span>
-      </p>
-    </form>
-
-
-
-    <form *ngIf="activeForm === 'register'" [formGroup]="registerForm" (ngSubmit)="register()">
+    <form  [formGroup]="registerForm" (ngSubmit)="register()">
       <h1 class="text-3xl font-weight-bold text-center text-gray-300">
        Register
       </h1>
@@ -59,7 +43,7 @@
       </div>
 
       <div class="mt-4">
-        <button class="btn btn-block" type="submit">Register</button>
+        <button class="btn btn-block button-form" type="submit">Register</button>
       </div>
       <p (click)="toggleForm()">Already have an account?
         <span class="highlighted">Login</span>

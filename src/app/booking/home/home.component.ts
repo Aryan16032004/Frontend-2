@@ -1,13 +1,14 @@
 import { Component,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { NavbarComponent } from '../navbar/navbar.component';
+
 import { FooterComponent } from '../footer/footer.component';
 import { RouterLink, RouterModule } from '@angular/router';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent,FooterComponent,RouterLink,RouterModule],
+  imports: [FooterComponent,RouterLink,RouterModule,NavbarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

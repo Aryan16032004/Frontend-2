@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup,ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { NavbarComponent } from '../navbar/navbar.component';
+
 
 
 interface UserData {
@@ -15,16 +15,16 @@ interface UserData {
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule,NavbarComponent],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
 loginForm:FormGroup;
-registerForm:FormGroup;
+
 registeredUserData: UserData | null = null; // Stores registered user data
 
-activeForm: 'login' | 'register' = 'login';
+
 
 constructor( private fb: FormBuilder,
   private router: Router,
@@ -35,11 +35,7 @@ constructor( private fb: FormBuilder,
     password: ['', Validators.required]
   });
 
-  this.registerForm = this.fb.group({
-    username: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required]
-  });
+
 
   const storedData = localStorage.getItem('registeredUserData');
     if (storedData) {
@@ -66,27 +62,10 @@ login() {
     }
   }
 }
-register() {
-  if (this.registerForm.valid) {
-    const registerData = this.registerForm.value;
-    this.registeredUserData = registerData; // Store registered user data temporarily (replace with a more secure mechanism)
-    localStorage.setItem('registeredUserData', JSON.stringify(registerData));
-    console.log('Registration successful!');
-    this.snackBar.open('Registration successful!', 'Close', { duration: 1500 });
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000);
-    this.router.navigate(['/login']);
+register(){
 
-    // Clear the login form to avoid pre-filled values
-    this.loginForm.reset();
-
-    // Optional: Navigate to a different route after successful registration (e.g., a confirmation page)
-    // this.router.navigate(['/confirmation']);
-  } else {
-    this.snackBar.open('Please fill in all fields correctly!', 'Close', { duration: 3000 });
-  }
 }
+
 
 // Replace this placeholder with a secure password comparison function
 // that uses hashing or encryption to protect user passwords

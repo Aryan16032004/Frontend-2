@@ -8,19 +8,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <button class="nav-link me-2 " (click)="home()" routerLinkActive="active link">Home</button>
+            <button class="nav-link me-2 " (click)="home()">Home</button>
           </li>
           <li class="nav-item">
-            <button class="nav-link me-2" (click)="room()" routerLinkActive="active link">Rooms</button>
+            <button class="nav-link me-2" (click)="room()" >Rooms</button>
           </li>
           <li class="nav-item">
-            <button class="nav-link me-2" (click)="facilities()" routerLinkActive="active link">Facilites</button>
+            <button class="nav-link me-2" (click)="facilities()" >Facilites</button>
           </li>
           <li class="nav-item">
             <button class="nav-link me-2"  (click)="contact()" routerLinkActive="active link">Contact us</button>
           </li>
           <li class="nav-item">
-            <button class="nav-link " (click)="about()" routerLinkActive="active link">About</button>
+            <button class="nav-link " (click)="about()" >About</button>
           </li>
         </ul>
         <div class="d-flex" role="search">
@@ -32,12 +32,24 @@
             Register
           </button>
          -->
-         <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2" (click)="login()">
-          Login
-        </button>
-        <button type="button" class="btn btn-outline-dark shadow-none me-lg-2 me-3" (click)="register()">
-          Register
-        </button>
+         <ng-container *ngIf="!isLoggedIn">
+          <div class="d-flex" role="search">
+            <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2" (click)="login()">
+              Login
+            </button>
+            <button type="button" class="btn btn-outline-dark shadow-none me-lg-2 me-3" (click)="register()">
+              Register
+            </button>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="isLoggedIn">
+          <span class="navbar-text ms-auto">
+            Welcome, {{ username }}!
+            <button type="button" class="btn btn-outline-dark shadow-none ms-2" (click)="logout()">Logout</button>
+          </span>
+        </ng-container>
+
         </div>
       </div>
     </div>
